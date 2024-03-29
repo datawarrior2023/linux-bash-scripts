@@ -20,7 +20,6 @@ backup_dir() {
     mkdir -p "${HOME}/backups"  # Ensure the backup directory exists by creating it if it doesn't
     tar -czf "${backup_path}" -C "$(dirname "$abs_target_dir")" "$(basename "$abs_target_dir")" && echo "Backup created at: ${backup_path}"  # Create the tarball, change to the parent directory, backup the target directory, and echo the backup path
 }
-
 ```
 
 To apply the function:
@@ -72,9 +71,7 @@ Decide where you want to restore the contents of the backup. You could restore t
 To restore the backup to the chosen location, use the following **`tar`** command:
     
     ```bash
-    bashCopy code
     tar -xzf ~/backups/Lucky_Duck_Investigations_backup_YYYY-MM-DD_HH-MM-SS.tar.gz -C /restore/location
-    
     ```
     
     Replace **`Lucky_Duck_Investigations_backup_YYYY-MM-DD_HH-MM-SS.tar.gz`** with your actual backup filename and **`/restore/location`** with the path where you want to restore the files.
@@ -82,9 +79,7 @@ To restore the backup to the chosen location, use the following **`tar`** comman
     If you want to restore to the original location and it's safe to overwrite the files, you could use:
     
     ```bash
-    bashCopy code
     tar -xzf ~/backups/Lucky_Duck_Investigations_backup_YYYY-MM-DD_HH-MM-SS.tar.gz -C /home
-    
     ```
     
     Here's what the **`tar`** options mean:
